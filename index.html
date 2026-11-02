@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Snow Guys — Snow Removal Toronto & GTA</title>
+<meta name="description" content="The Snow Guys: residential & commercial snow removal, salting and seasonal contracts across Toronto and the GTA. 24/7 storm response.">
+<meta name="theme-color" content="#0a1730">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230a1730'/%3E%3Cpath d='M32 10v44M13 21l38 22M13 43l38-22' stroke='%237fd3ff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="flake" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M32 6v52M9.5 19l45 26M9.5 45l45-26"/><path d="M24 10l8 7 8-7M24 54l8-7 8 7M8 28l10 2-3 9M56 36l-10-2 3-9M8 36l10-2-3-9M56 28l-10 2 3 9"/></g></symbol>
+ <symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+ <symbol id="i-steps" viewBox="0 0 24 24"><path d="M3 20h5v-4h5v-4h5V8h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+ <symbol id="i-lot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></g></symbol>
+ <symbol id="i-salt" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 3h8l1 5H7zM7 8h10v12a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1z"/><circle cx="10" cy="13" r=".6"/><circle cx="14" cy="15" r=".6"/><circle cx="11" cy="17" r=".6"/></g></symbol>
+ <symbol id="i-roof" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 13L12 5l10 8"/><path d="M5 11v9h14v-9"/><path d="M6 9c2-1 4 0 6-1s4 0 6 1"/></g></symbol>
+ <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2"/></g></symbol>
+ <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- Intro loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <svg class="loader-flake"><use href="#flake"/></svg>
+    <div class="loader-word"><span>The</span><span>Snow</span><span>Guys</span></div>
+    <div class="loader-bar"><i></i></div>
+  </div>
+</div>
+
+<div class="cursor" aria-hidden="true"><div class="cursor-dot"></div><div class="cursor-ring"></div></div>
+
+<header class="nav" id="nav">
+  <a href="#top" class="logo" aria-label="The Snow Guys home">
+    <svg class="logo-mark"><use href="#flake"/></svg>
+    <span>The Snow <b>Guys</b></span>
+  </a>
+  <nav class="nav-links" id="navLinks" aria-label="Main">
+    <a href="#services">Services</a><a href="#process">How it works</a><a href="#pricing">Pricing</a><a href="#area">Service area</a><a href="#faq">FAQ</a>
+    <a href="#book" class="btn btn-sm btn-primary nav-cta">Book Now</a>
+  </nav>
+  <a href="tel:6474507833" class="nav-phone"><svg><use href="#i-phone"/></svg>(647) 450-7833</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="top">
+<section class="hero" id="hero">
+  <canvas id="snow" aria-hidden="true"></canvas>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <p class="eyebrow reveal-hero"><span class="pulse"></span> Now booking the 2026–27 season · Toronto & GTA</p>
+    <h1 class="hero-title" id="heroTitle">We clear the snow.<br><em>You keep the warm.</em></h1>
+    <p class="hero-sub reveal-hero">Driveways, walkways, commercial lots and roofs — cleared fast, salted right, and tracked every storm. 24/7 crews across the Greater Toronto Area.</p>
+    <div class="hero-ctas reveal-hero">
+      <a href="#book" class="btn btn-primary magnetic">Book Now <svg><use href="#i-arrow"/></svg></a>
+      <a href="#quote" class="btn btn-ghost magnetic">Get a Quote</a>
+    </div>
+    <div class="hero-call reveal-hero">
+      <a href="tel:6474507833"><small>Eugene</small>(647) 450-7833</a>
+      <a href="tel:4379819357"><small>Illya</small>(437) 981-9357</a>
+    </div>
+  </div>
+  <div class="mountains" aria-hidden="true">
+    <svg class="mtn mtn-3" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0 220L120 150 220 200 360 90 470 170 600 110 720 190 860 70 990 180 1110 120 1240 200 1340 140 1440 190V320H0z"/></svg>
+    <svg class="mtn mtn-2" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0 250L160 170 300 240 450 150 600 230 760 160 920 250 1080 170 1230 240 1440 180V320H0z"/></svg>
+    <svg class="mtn mtn-1" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0 280C200 240 340 300 520 270S860 230 1040 270 1300 290 1440 260V320H0z"/></svg>
+  </div>
+  <a href="#stats" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track">
+  <span>Driveways</span><svg><use href="#flake"/></svg><span>Walkways</span><svg><use href="#flake"/></svg><span>Commercial Lots</span><svg><use href="#flake"/></svg><span>Salting & De-icing</span><svg><use href="#flake"/></svg><span>Roof Clearing</span><svg><use href="#flake"/></svg><span>Seasonal Contracts</span><svg><use href="#flake"/></svg><span>24/7 Storm Response</span><svg><use href="#flake"/></svg>
+</div></div>
+
+<section class="stats" id="stats">
+  <div class="container stats-grid">
+    <div class="stat reveal"><b data-count="1200" data-suffix="+">0</b><span>Properties cleared</span></div>
+    <div class="stat reveal"><b data-count="4" data-suffix=" hr">0</b><span>Avg. post-storm arrival</span></div>
+    <div class="stat reveal"><b data-count="98" data-suffix="%">0</b><span>Renewal rate</span></div>
+    <div class="stat reveal"><b data-count="24" data-suffix="/7">0</b><span>Storm monitoring</span></div>
+  </div>
+  <p class="container fineprint">Figures shown are illustrative placeholders — replace with your real numbers.</p>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head reveal"><p class="eyebrow">What we do</p><h2 class="split">Every flake, every surface.</h2></div>
+    <div class="cards">
+      <article class="card tilt"><div class="card-icon"><svg><use href="#i-house"/></svg></div><h3>Residential Driveways</h3><p>Plowed or blown edge-to-edge, including the windrow at the end of your driveway.</p><span class="card-num">01</span></article>
+      <article class="card tilt"><div class="card-icon"><svg><use href="#i-steps"/></svg></div><h3>Walkways & Steps</h3><p>Hand-shovelled paths, porches and stairs — swept clean so nobody slips.</p><span class="card-num">02</span></article>
+      <article class="card tilt"><div class="card-icon"><svg><use href="#i-lot"/></svg></div><h3>Commercial Lots</h3><p>Plazas, offices and condo lots cleared before opening, with site logs for liability.</p><span class="card-num">03</span></article>
+      <article class="card tilt"><div class="card-icon"><svg><use href="#i-salt"/></svg></div><h3>Salting & De-icing</h3><p>Pre-treatment and post-clear salting, with pet-friendly options on request.</p><span class="card-num">04</span></article>
+      <article class="card tilt"><div class="card-icon"><svg><use href="#i-roof"/></svg></div><h3>Roof Snow Removal</h3><p>Safe load relief for flat and pitched roofs, ice-dam prevention and eaves clearing.</p><span class="card-num">05</span></article>
+      <article class="card tilt card-feature"><div class="card-icon"><svg><use href="#i-cal"/></svg></div><h3>Seasonal Contracts</h3><p>One price, Nov–Apr. Automatic dispatch at your trigger depth — never call us again.</p><span class="card-num">06</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="process-pin">
+    <div class="process-head container"><p class="eyebrow">How it works</p><h2>Four steps to a clear driveway.</h2></div>
+    <div class="process-track">
+      <div class="step"><span class="step-n">01</span><h3>Request a quote</h3><p>Use the instant calculator or call us. Takes about 60 seconds.</p></div>
+      <div class="step"><span class="step-n">02</span><h3>We assess</h3><p>We confirm size, obstacles and drop-off spots — free, no obligation.</p></div>
+      <div class="step"><span class="step-n">03</span><h3>Storm hits, we roll</h3><p>Crews dispatch automatically once snowfall reaches your trigger depth.</p></div>
+      <div class="step"><span class="step-n">04</span><h3>Wake up clear</h3><p>Get a text when we're done. Salted, swept and safe.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-head reveal"><p class="eyebrow">Pricing</p><h2 class="split">Clear prices. No storm surprises.</h2><p class="muted">Example prices in CAD for a typical GTA property. Final price confirmed after a free assessment. HST extra.</p></div>
+    <div class="tiers">
+      <div class="tier reveal"><h3>Per Visit</h3><p class="tier-price"><small>from</small> $45<span>/visit</span></p><ul><li>Single-car driveway</li><li>Front walkway</li><li>Book on demand</li></ul><a href="#book" class="btn btn-ghost" data-plan="Per Visit">Book a visit</a></div>
+      <div class="tier tier-hot reveal"><span class="badge">Most popular</span><h3>Seasonal Residential</h3><p class="tier-price"><small>from</small> $549<span>/season</span></p><ul><li>Unlimited clears Nov–Apr</li><li>Driveway + walkway + steps</li><li>Auto dispatch at 5 cm</li><li>Salting included</li></ul><a href="#book" class="btn btn-primary" data-plan="Seasonal Residential">Lock in season</a></div>
+      <div class="tier reveal"><h3>Commercial</h3><p class="tier-price"><small>from</small> $1,499<span>/month</span></p><ul><li>Lots, plazas & condos</li><li>Pre-opening clearing</li><li>Site logs & photos</li><li>Priority 24/7 dispatch</li></ul><a href="#book" class="btn btn-ghost" data-plan="Commercial">Request site visit</a></div>
+    </div>
+
+    <div class="quote reveal" id="quote">
+      <div class="quote-form">
+        <h3>Instant quote calculator</h3>
+        <label>Property type
+          <div class="seg" data-name="ptype"><button type="button" class="on" data-v="res">Residential</button><button type="button" data-v="com">Commercial</button></div></label>
+        <label>Driveway size <output id="carsOut">2 cars</output>
+          <input type="range" id="cars" min="1" max="8" value="2"></label>
+        <label class="row-check"><input type="checkbox" id="walk" checked> Walkway & steps</label>
+        <label class="row-check"><input type="checkbox" id="salt"> Salting / de-icing</label>
+        <label class="row-check"><input type="checkbox" id="roof"> Roof clearing</label>
+        <label>Frequency
+          <div class="seg" data-name="freq"><button type="button" data-v="visit">Per visit</button><button type="button" class="on" data-v="season">Seasonal</button></div></label>
+      </div>
+      <div class="quote-result">
+        <p class="muted" id="qLabel">Estimated seasonal price</p>
+        <p class="q-amount">$<span id="qAmount">0</span></p>
+        <p class="muted small" id="qNote">CAD, before HST. Example estimate only.</p>
+        <a href="#book" class="btn btn-primary magnetic" id="qBook">Book this quote <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="container book-wrap">
+    <div class="book-copy reveal"><p class="eyebrow">Booking</p><h2>Book your clear in under two minutes.</h2><p class="muted">Prefer to talk? Call Eugene at <a href="tel:6474507833">(647) 450-7833</a> or Illya at <a href="tel:4379819357">(437) 981-9357</a>.</p></div>
+    <!-- BACKEND HOOK: currently no server. Replace the submit handler in app.js (see "BACKEND HOOK")
+         with a fetch() POST to e.g. Formspree (https://formspree.io/f/XXXX) or your own API. -->
+    <form class="bform reveal" id="bform" novalidate>
+      <div class="bprog"><i id="bprogBar"></i></div>
+      <ol class="bsteps-label"><li class="on">Service</li><li>Address</li><li>When</li><li>Contact</li></ol>
+      <fieldset class="bstep on" data-step="0"><legend>Which service?</legend>
+        <div class="choices">
+          <label><input type="radio" name="service" value="Residential driveway" required><span>Residential driveway</span></label>
+          <label><input type="radio" name="service" value="Walkway & steps"><span>Walkway & steps</span></label>
+          <label><input type="radio" name="service" value="Commercial lot"><span>Commercial lot</span></label>
+          <label><input type="radio" name="service" value="Salting / de-icing"><span>Salting / de-icing</span></label>
+          <label><input type="radio" name="service" value="Roof snow removal"><span>Roof snow removal</span></label>
+          <label><input type="radio" name="service" value="Seasonal contract"><span>Seasonal contract</span></label>
+        </div><p class="err" data-for="service"></p></fieldset>
+      <fieldset class="bstep" data-step="1"><legend>Where are we clearing?</legend>
+        <label class="fl">Street address<input name="address" required autocomplete="street-address" placeholder="123 Queen St W"></label>
+        <div class="two"><label class="fl">City<input name="city" required value="Toronto" autocomplete="address-level2"></label>
+        <label class="fl">Postal code<input name="postal" required placeholder="M5H 2N2" pattern="[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d" autocomplete="postal-code"></label></div>
+        <p class="err" data-for="address"></p></fieldset>
+      <fieldset class="bstep" data-step="2"><legend>When?</legend>
+        <label class="fl">Preferred date<input type="date" name="date" required></label>
+        <div class="choices choices-sm">
+          <label><input type="radio" name="window" value="Early (5–8 am)" required><span>5–8 am</span></label>
+          <label><input type="radio" name="window" value="Morning (8–12)"><span>8–12</span></label>
+          <label><input type="radio" name="window" value="Afternoon (12–5)"><span>12–5</span></label>
+          <label><input type="radio" name="window" value="ASAP / after storm"><span>After storm</span></label>
+        </div><p class="err" data-for="date"></p></fieldset>
+      <fieldset class="bstep" data-step="3"><legend>How do we reach you?</legend>
+        <div class="two"><label class="fl">Name<input name="name" required autocomplete="name"></label>
+        <label class="fl">Phone<input name="phone" type="tel" required autocomplete="tel" placeholder="(416) 555-0123"></label></div>
+        <label class="fl">Email<input name="email" type="email" autocomplete="email" placeholder="optional"></label>
+        <label class="fl">Notes<textarea name="notes" rows="3" placeholder="Gate code, where to pile snow, parked cars…"></textarea></label>
+        <p class="err" data-for="name"></p></fieldset>
+      <div class="bnav"><button type="button" class="btn btn-ghost" id="bPrev" disabled>Back</button><button type="button" class="btn btn-primary" id="bNext">Continue <svg><use href="#i-arrow"/></svg></button></div>
+      <div class="bdone" id="bdone" hidden>
+        <div class="bdone-check"><svg><use href="#i-check"/></svg></div>
+        <h3>Request saved!</h3>
+        <p class="muted">Your booking is saved on this device. Send it to us now so we can confirm:</p>
+        <div class="bdone-actions"><a class="btn btn-primary" id="sendMail">Send by email</a><a class="btn btn-ghost" id="sendSms">Text Eugene</a><a class="btn btn-ghost" id="sendSms2">Text Illya</a></div>
+        <button type="button" class="linkbtn" id="bAgain">Make another booking</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="testi" id="testimonials">
+  <div class="container">
+    <div class="section-head reveal"><p class="eyebrow">Reviews</p><h2 class="split">Neighbours sleep in.</h2><p class="muted small">Sample testimonials (placeholders) — replace with real customer reviews.</p></div>
+    <div class="carousel" id="carousel">
+      <div class="c-track">
+        <blockquote class="c-slide"><p>“Woke up after a 30 cm dump and the driveway was already done. Unreal.”</p><cite>— Customer A., North York (placeholder)</cite></blockquote>
+        <blockquote class="c-slide"><p>“Our plaza lot is clear before the first tenant arrives. Every single time.”</p><cite>— Property Manager B., Mississauga (placeholder)</cite></blockquote>
+        <blockquote class="c-slide"><p>“Fair seasonal price, and they salt the steps without me asking.”</p><cite>— Homeowner C., Etobicoke (placeholder)</cite></blockquote>
+        <blockquote class="c-slide"><p>“Quick texts when they arrive and finish. Feels like a premium service.”</p><cite>— Customer D., Vaughan (placeholder)</cite></blockquote>
+      </div>
+      <div class="c-ctrl"><button type="button" id="cPrev" aria-label="Previous">‹</button><div class="c-dots" id="cDots"></div><button type="button" id="cNext" aria-label="Next">›</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="area" id="area">
+  <div class="container area-wrap">
+    <div class="reveal"><p class="eyebrow">Service area</p><h2>Across Toronto & the GTA.</h2><p class="muted">Not sure if you're covered? Call us — we expand routes every season.</p>
+      <ul class="area-list"><li>Downtown Toronto</li><li>North York</li><li>Scarborough</li><li>Etobicoke</li><li>East York</li><li>York</li><li>Mississauga</li><li>Brampton</li><li>Vaughan</li><li>Richmond Hill</li><li>Markham</li><li>Pickering</li></ul></div>
+    <div class="area-map reveal" aria-hidden="true">
+      <svg viewBox="0 0 400 320"><defs><radialGradient id="rg"><stop offset="0" stop-color="#7fd3ff" stop-opacity=".5"/><stop offset="1" stop-color="#7fd3ff" stop-opacity="0"/></radialGradient></defs>
+        <path class="lake" d="M0 250C80 230 140 260 210 245S330 220 400 235V320H0z"/>
+        <circle cx="200" cy="200" r="150" fill="url(#rg)"/>
+        <g class="pins"><circle cx="205" cy="215" r="7"/><circle cx="190" cy="150" r="5"/><circle cx="290" cy="170" r="5"/><circle cx="130" cy="200" r="5"/><circle cx="85" cy="215" r="5"/><circle cx="80" cy="140" r="5"/><circle cx="160" cy="95" r="5"/><circle cx="230" cy="80" r="5"/><circle cx="290" cy="105" r="5"/><circle cx="350" cy="150" r="5"/></g>
+        <text x="215" y="222">Toronto</text><text x="20" y="295" class="lt">Lake Ontario</text></svg>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container narrow">
+    <div class="section-head reveal"><p class="eyebrow">FAQ</p><h2 class="split">Questions, answered.</h2></div>
+    <div class="acc">
+      <details class="reveal"><summary>When do you come out after a storm?</summary><p>Seasonal clients are dispatched automatically once snowfall reaches the trigger depth (typically 5 cm). Most properties are cleared within a few hours of the snow stopping.</p></details>
+      <details class="reveal"><summary>Do you clear the windrow from the city plow?</summary><p>Yes — the snowbank left at the end of your driveway by city plows is included on every visit.</p></details>
+      <details class="reveal"><summary>Is salt safe for pets and new concrete?</summary><p>We offer pet-friendly and concrete-safe de-icers on request at a small extra cost.</p></details>
+      <details class="reveal"><summary>Are you insured?</summary><p>Ask us for our certificate of insurance — we're happy to provide documentation for property managers and condo boards.</p></details>
+      <details class="reveal"><summary>How do I pay?</summary><p>Seasonal contracts can be paid in full or in instalments. Per-visit service is billed after each clear. E-transfer and major cards accepted.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <canvas id="snow2" aria-hidden="true"></canvas>
+  <div class="container cta-inner reveal">
+    <h2>Winter's coming.<br><em>Get ahead of it.</em></h2>
+    <div class="hero-ctas"><a href="#book" class="btn btn-primary magnetic">Book Now</a><a href="tel:6474507833" class="btn btn-ghost magnetic">Call Eugene (647) 450-7833</a><a href="tel:4379819357" class="btn btn-ghost magnetic">Call Illya (437) 981-9357</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container foot-grid">
+    <div><a href="#top" class="logo"><svg class="logo-mark"><use href="#flake"/></svg><span>The Snow <b>Guys</b></span></a><p class="muted small">Professional snow removal for Toronto & the GTA.</p></div>
+    <div><h4>Services</h4><a href="#services">Driveways</a><a href="#services">Commercial</a><a href="#services">Salting</a><a href="#services">Roofs</a></div>
+    <div><h4>Company</h4><a href="#process">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#book">Book</a></div>
+    <div><h4>Call us</h4><a href="tel:6474507833">Eugene: (647) 450-7833</a><a href="tel:4379819357">Illya: (437) 981-9357</a></div>
+  </div>
+  <p class="container copy small muted">© <span id="yr"></span> The Snow Guys. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
