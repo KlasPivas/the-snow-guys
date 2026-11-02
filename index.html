@@ -140,6 +140,15 @@
         <p class="q-amount">$<span id="qAmount">0</span></p>
         <p class="muted small" id="qNote">CAD, before HST. Example estimate only.</p>
         <a href="#book" class="btn btn-primary magnetic" id="qBook">Book this quote <svg><use href="#i-arrow"/></svg></a>
+        <button type="button" class="linkbtn" id="qEmailToggle" style="margin-top:.8rem">Email me this quote / Send quote request</button>
+        <form id="qform" hidden novalidate style="margin-top:.8rem;display:grid;gap:.5rem">
+          <label class="fl">Name<input name="qname" required autocomplete="name"></label>
+          <label class="fl">Phone<input name="qphone" type="tel" autocomplete="tel" placeholder="(416) 555-0123"></label>
+          <label class="fl">Email<input name="qemail" type="email" autocomplete="email" placeholder="you@example.com"></label>
+          <p class="muted small" style="margin:0">Phone or email required.</p>
+          <button type="submit" class="btn btn-primary" id="qSend">Send quote request</button>
+          <p class="err" id="qMsg" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </div>
   </div>
@@ -181,11 +190,12 @@
         <label class="fl">Email<input name="email" type="email" autocomplete="email" placeholder="optional"></label>
         <label class="fl">Notes<textarea name="notes" rows="3" placeholder="Gate code, where to pile snow, parked cars…"></textarea></label>
         <p class="err" data-for="name"></p></fieldset>
+      <p class="err" id="bSendErr" role="alert"></p>
       <div class="bnav"><button type="button" class="btn btn-ghost" id="bPrev" disabled>Back</button><button type="button" class="btn btn-primary" id="bNext">Continue <svg><use href="#i-arrow"/></svg></button></div>
       <div class="bdone" id="bdone" hidden>
         <div class="bdone-check"><svg><use href="#i-check"/></svg></div>
-        <h3>Request saved!</h3>
-        <p class="muted">Your booking is saved on this device. Send it to us now so we can confirm:</p>
+        <h3>Request sent!</h3>
+        <p class="muted">Thanks — we received your booking and will confirm shortly. You can also reach us directly:</p>
         <div class="bdone-actions"><a class="btn btn-primary" id="sendMail">Send by email</a><a class="btn btn-ghost" id="sendSms">Text Eugene</a><a class="btn btn-ghost" id="sendSms2">Text Illya</a></div>
         <button type="button" class="linkbtn" id="bAgain">Make another booking</button>
       </div>

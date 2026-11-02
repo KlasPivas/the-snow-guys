@@ -151,20 +151,34 @@ prev.addEventListener('click',function(){if(cur>0)show(cur-1)});
 next.addEventListener('click',function(){if(!validate(cur))return;if(cur<steps.length-1)show(cur+1);else submit()});
 form.addEventListener('submit',function(e){e.preventDefault()});
 form.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.tagName!=='TEXTAREA'){e.preventDefault();next.click()}});
-function submit(){var f=form.elements,data={service:f.service.value,address:f.address.value.trim()+', '+f.city.value.trim()+' '+f.postal.value.trim().toUpperCase(),date:f.date.value,window:f.window.value,name:f.name.value.trim(),phone:f.phone.value.trim(),email:f.email.value.trim(),notes:f.notes.value.trim(),created:new Date().toISOString()};
-  /* ===== BACKEND HOOK =====
-     No backend yet: booking is saved to localStorage and the user is offered a prefilled email/SMS.
-     To use a real backend (e.g. Formspree), replace/augment with:
-       fetch('https://formspree.io/f/YOUR_FORM_ID',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
-         .then(function(r){ if(!r.ok) throw r; showDone(); }).catch(function(){ alert('Could not send — please call us.'); });
-  */
+var FS_URL='https://formsubmit.co/ajax/klaspivas1810@gmail.com',BIZ_EMAIL='klaspivas1810@gmail.com';
+var CALL_HTML=' Please call Eugene at <a href="tel:6474507833">(647) 450-7833</a> or Illya at <a href="tel:4379819357">(437) 981-9357</a>.';
+function quoteInfo(){return{quote_estimate:'$'+Q.total+' CAD '+(Q.freq==='season'?'(seasonal, Nov–Apr)':'(per visit)')+', before HST',property_type:Q.ptype==='com'?'Commercial':'Residential',size:$('#carsOut').textContent,frequency:Q.freq==='season'?'Seasonal':'Per visit',walkway:$('#walk').checked?'Yes':'No',salting:$('#salt').checked?'Yes':'No',roof:$('#roof').checked?'Yes':'No'}}
+function fsSend(payload){return fetch(FS_URL,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok||j.success===false||j.success==='false')throw new Error(j.message||'send failed');return j})})}
+var sending=false;
+function submit(){if(sending)return;var f=form.elements,data={service:f.service.value,address:f.address.value.trim()+', '+f.city.value.trim()+' '+f.postal.value.trim().toUpperCase(),postal_code:f.postal.value.trim().toUpperCase(),date:f.date.value,window:f.window.value,name:f.name.value.trim(),phone:f.phone.value.trim(),email:f.email.value.trim(),notes:f.notes.value.trim(),created:new Date().toISOString()};
   try{var all=JSON.parse(localStorage.getItem('snowguys_bookings')||'[]');all.push(data);localStorage.setItem('snowguys_bookings',JSON.stringify(all))}catch(e){}
   var body='New booking request — The Snow Guys\n\nService: '+data.service+'\nAddress: '+data.address+'\nDate: '+data.date+'\nTime window: '+data.window+'\nName: '+data.name+'\nPhone: '+data.phone+(data.email?'\nEmail: '+data.email:'')+(data.notes?'\nNotes: '+data.notes:'');
-  // NOTE: set your business email below (no email was provided, so recipient is left blank)
-  $('#sendMail').href='mailto:?subject='+encodeURIComponent('Snow removal booking — '+data.name)+'&body='+encodeURIComponent(body);
+  $('#sendMail').href='mailto:'+BIZ_EMAIL+'?subject='+encodeURIComponent('Snow removal booking — '+data.name)+'&body='+encodeURIComponent(body);
   $('#sendSms').href='sms:6474507833?&body='+encodeURIComponent(body);
   $('#sendSms2').href='sms:4379819357?&body='+encodeURIComponent(body);
-  var d=$('#bdone');d.hidden=false;confetti();}
+  var q=quoteInfo(),payload={_subject:'New booking — The Snow Guys',_template:'table',_captcha:'false',Service:data.service,Address:data.address,'Postal code':data.postal_code,Date:data.date,'Time window':data.window,Name:data.name,Phone:data.phone,Email:data.email||'—',Notes:data.notes||'—','Quote estimate':q.quote_estimate,'Calc: property':q.property_type,'Calc: size':q.size,'Calc: frequency':q.frequency,'Calc: walkway':q.walkway,'Calc: salting':q.salting,'Calc: roof':q.roof};
+  if(data.email)payload._replyto=data.email;
+  var se=$('#bSendErr');se.innerHTML='';sending=true;next.disabled=true;next.textContent='Sending…';
+  fsSend(payload).then(function(){var d=$('#bdone');d.hidden=false;confetti();}).catch(function(){se.innerHTML='Sorry — we couldn’t send your booking right now (it’s saved on this device).'+CALL_HTML+' Or <a href="'+$('#sendMail').href.replace(/"/g,'&quot;')+'">email it to us</a>.';})
+  .then(function(){sending=false;next.disabled=false;show(cur)});}
+var qf=$('#qform');$('#qEmailToggle').addEventListener('click',function(){qf.hidden=!qf.hidden;qf.style.display=qf.hidden?'none':'grid';if(!qf.hidden)qf.elements.qname.focus()});qf.style.display='none';
+qf.addEventListener('submit',function(e){e.preventDefault();var f=qf.elements,m=$('#qMsg'),n=f.qname.value.trim(),p=f.qphone.value.trim(),em=f.qemail.value.trim();
+  if(n.length<2){m.textContent='Please enter your name.';return}
+  if(!p&&!em){m.textContent='Please enter a phone number or email.';return}
+  if(p&&p.replace(/\D/g,'').length<10){m.textContent='Please enter a valid phone number.';return}
+  if(em&&!/^\S+@\S+\.\S+$/.test(em)){m.textContent='Email looks invalid.';return}
+  var q=quoteInfo(),rec={type:'quote',name:n,phone:p,email:em,quote:q,created:new Date().toISOString()};
+  try{var all=JSON.parse(localStorage.getItem('snowguys_quotes')||'[]');all.push(rec);localStorage.setItem('snowguys_quotes',JSON.stringify(all))}catch(x){}
+  var payload={_subject:'New quote request — The Snow Guys',_template:'table',_captcha:'false',Name:n,Phone:p||'—',Email:em||'—','Quote estimate':q.quote_estimate,'Property type':q.property_type,Size:q.size,Frequency:q.frequency,Walkway:q.walkway,Salting:q.salting,Roof:q.roof};
+  if(em)payload._replyto=em;
+  var btn=$('#qSend');btn.disabled=true;btn.textContent='Sending…';m.textContent='';
+  fsSend(payload).then(function(){m.innerHTML='Thanks! Your quote request was sent — we’ll be in touch soon.';qf.reset()}).catch(function(){m.innerHTML='Sorry — we couldn’t send that right now.'+CALL_HTML}).then(function(){btn.disabled=false;btn.textContent='Send quote request'});});
 function confetti(){if(RM||!hasG)return;var d=$('#bdone');for(var i=0;i<40;i++){var c=document.createElement('i');c.className='confetti';c.style.background=['#7fd3ff','#4f8cff','#bfe9ff','#0a1730'][i%4];c.style.left='50%';c.style.top='35%';d.appendChild(c);
   gsap.to(c,{x:(Math.random()-.5)*500,y:(Math.random()-.3)*400,opacity:0,scale:Math.random()*1.5+.5,duration:1.4+Math.random(),ease:'power3.out',onComplete:function(){this.targets()[0].remove()}})}}
 $('#bAgain').addEventListener('click',function(){form.reset();form.elements.city.value='Toronto';$('#bdone').hidden=true;show(0)});
